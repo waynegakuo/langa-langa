@@ -31,12 +31,19 @@
             [inert]="currentIndex() !== i"
           >
             @if (team.carImageUrl) {
-              <div class="team-carousel__car-wrap">
+              <div
+                class="team-carousel__car-wrap"
+                (pointerdown)="onCarSwipeStart($event)"
+                (pointerup)="onCarSwipeEnd($event)"
+                (pointercancel)="onCarSwipeCancel()"
+                (dragstart)="$event.preventDefault()"
+              >
                 <img
                   class="team-carousel__car-image"
                   [src]="team.carImageUrl"
                   [alt]="team.teamName + ' F1 car'"
                   loading="lazy"
+                  draggable="false"
                 />
               </div>
             }
@@ -67,37 +74,18 @@
 
   @if (!loading() && teams().length > 1) {
     <div class="team-carousel__controls">
-      <button
-        type="button"
-        class="team-carousel__nav"
-        aria-label="Previous team"
-        (click)="prev()"
-      >
-        ‹
-      </button>
-
-      <div class="team-carousel__dots" role="tablist" aria-label="Select team">
+      <div class="team-carousel__indicators" role="group" aria-label="Select team">
         @for (entry of teams(); track entry.teamName; let i = $index) {
           <button
             type="button"
-            class="team-carousel__dot"
-            role="tab"
-            [class.team-carousel__dot--active]="currentIndex() === i"
-            [attr.aria-selected]="currentIndex() === i"
+            class="team-carousel__indicator"
+            [class.team-carousel__indicator--active]="currentIndex() === i"
+            [attr.aria-current]="currentIndex() === i ? 'true' : null"
             [attr.aria-label]="entry.teamName"
             (click)="goTo(i)"
           ></button>
         }
       </div>
-
-      <button
-        type="button"
-        class="team-carousel__nav"
-        aria-label="Next team"
-        (click)="next()"
-      >
-        ›
-      </button>
     </div>
   }
 </div>
