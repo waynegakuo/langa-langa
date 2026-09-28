@@ -1,0 +1,19 @@
+<div
+  class="pp-page-loader"
+  [class.pp-page-loader--viewport]="fullViewport()"
+  [class.pp-page-loader--section]="!fullViewport()"
+  role="status"
+  [attr.aria-live]="'polite'"
+  [attr.aria-label]="currentMessage()"
+>
+  <div class="pp-page-loader__animation" aria-hidden="true">
+    <div class="pp-page-loader__lights">
+      @for (light of lights; track light) {
+        <span class="pp-page-loader__light" [style.animation-delay.ms]="light * 180"></span>
+      }
+    </div>
+    <div class="pp-page-loader__stripe"></div>
+  </div>
+
+  <p class="pp-page-loader__message">{{ currentMessage() }}</p>
+</div>
