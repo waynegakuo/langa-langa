@@ -14,9 +14,10 @@
   />
 } @else {
   <div class="calendar-layout">
-    <aside class="calendar-nav" aria-label="Race round navigation">
-      <p class="calendar-nav__heading">Rounds</p>
-      <nav class="calendar-nav__list">
+    <div class="calendar-nav-bar">
+      <aside class="calendar-nav" aria-label="Race round navigation">
+        <p class="calendar-nav__heading">Rounds</p>
+        <nav class="calendar-nav__list">
         @for (group of meetingGroups(); track group.meetingKey; let i = $index) {
           <button
             type="button"
@@ -44,8 +45,9 @@
             }
           </button>
         }
-      </nav>
-    </aside>
+        </nav>
+      </aside>
+    </div>
 
     <div class="calendar">
       @for (group of meetingGroups(); track group.meetingKey; let i = $index) {
