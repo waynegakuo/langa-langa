@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "paddock-pass": {
+    "langa-langa": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -49,7 +49,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/paddock-pass",
+            "outputPath": "dist/langa-langa",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -99,10 +99,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "paddock-pass:build:production"
+              "buildTarget": "langa-langa:build:production"
             },
             "development": {
-              "buildTarget": "paddock-pass:build:development"
+              "buildTarget": "langa-langa:build:development"
             }
           },
           "defaultConfiguration": "development"

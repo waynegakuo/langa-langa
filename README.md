@@ -1,11 +1,11 @@
-# Paddock Pass
+# Langa Langa
 
-Your all-access pass to Formula 1 data — sessions, drivers, results, and lap times powered by the [OpenF1 API](https://openf1.org).
+Live sessions, driver grids, race results, and lap times — powered by the [OpenF1 API](https://openf1.org).
 
 ## Features
 
-- **Home** — Season overview, next race, and recent results
-- **Calendar** — Full race weekend schedule grouped by Grand Prix
+- **Home** — Season overview, team carousel, next race, and recent results
+- **Calendar** — Full race weekend schedule grouped by Grand Prix with round navigation
 - **Drivers** — Current grid organized by team with live team colours
 - **Session Detail** — Classification, fastest laps, and gap times
 
@@ -24,6 +24,14 @@ npm start
 ```
 
 Open [http://localhost:4200](http://localhost:4200).
+
+## Deploy
+
+```bash
+npm run deploy
+```
+
+Builds the app and deploys to Firebase Hosting.
 
 ## Design System
 
