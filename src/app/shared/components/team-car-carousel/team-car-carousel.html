@@ -30,6 +30,23 @@
             [attr.aria-hidden]="currentIndex() !== i"
             [inert]="currentIndex() !== i"
           >
+            <div class="team-carousel__team">
+              @if (team.logoUrl) {
+                <img
+                  class="team-carousel__logo"
+                  [src]="team.logoUrl"
+                  [alt]="team.teamName + ' logo'"
+                  loading="lazy"
+                  (error)="onLogoError($event)"
+                />
+              }
+              <div class="team-carousel__team-copy">
+                <span class="team-carousel__team-label">Constructor</span>
+                <h3 class="team-carousel__team-name">{{ team.teamName }}</h3>
+                <p class="team-carousel__drivers">{{ team.drivers.join(' · ') }}</p>
+              </div>
+            </div>
+
             @if (team.carImageUrl) {
               <div
                 class="team-carousel__car-wrap"
@@ -47,23 +64,6 @@
                 />
               </div>
             }
-
-            <div class="team-carousel__team">
-              @if (team.logoUrl) {
-                <img
-                  class="team-carousel__logo"
-                  [src]="team.logoUrl"
-                  [alt]="team.teamName + ' logo'"
-                  loading="lazy"
-                  (error)="onLogoError($event)"
-                />
-              }
-              <div class="team-carousel__team-copy">
-                <span class="team-carousel__team-label">Constructor</span>
-                <h3 class="team-carousel__team-name">{{ team.teamName }}</h3>
-                <p class="team-carousel__drivers">{{ team.drivers.join(' · ') }}</p>
-              </div>
-            </div>
           </div>
         }
       </div>
