@@ -1,0 +1,129 @@
+@if (loading()) {
+  <pp-spinner />
+} @else if (!session()) {
+  <pp-empty-state
+    icon="🏎️"
+    title="Session not found"
+    message="This session doesn't exist or data is unavailable."
+  >
+    <pp-button variant="secondary">
+      <a routerLink="/calendar">Back to Calendar</a>
+    </pp-button>
+  </pp-empty-state>
+} @else {
+  @if (session(); as s) {
+    <header class="session-detail__hero">
+      <span class="session-detail__eyebrow">{{ s.year }} Season · {{ s.circuit_short_name }}</span>
+
+      <div class="session-detail__title-row">
+        <h1 class="session-detail__title">
+          @if (isMainRace(s)) {
+            {{ formatRaceTitle(s) }}
+          } @else {
+            {{ s.location }} — {{ s.session_name }}
+          }
+        </h1>
+        <span class="session-detail__venue">{{ formatSessionVenue(s) }}</span>
+      </div>
+
+      <div class="session-detail__meta">
+        <pp-badge [variant]="sessionBadgeVariant(s.session_type)">{{ s.session_type }}</pp-badge>
+        <span class="session-detail__datetime">
+          {{ formatSessionDate(s.date_start) }} · {{ formatSessionTime(s.date_start) }}
+        </span>
+        @if (isSessionCompleted(s)) {
+          <span class="session-detail__status-tag">Completed</span>
+        }
+      </div>
+
+      @if (podium().length) {
+        <pp-podium [entries]="podium()" />
+      }
+    </header>
+
+    @if (results().length) {
+      <section class="session-detail__section">
+        <h2 class="session-detail__heading">Classification</h2>
+        <div class="session-detail__results">
+          @for (row of results(); track row.result.driver_number) {
+            <pp-card [teamColor]="formatTeamColor(row.driver?.team_colour)">
+              <div class="session-detail__result-row">
+                <span
+                  class="session-detail__position"
+                  [class.session-detail__position--out]="row.result.position == null"
+                  [style.color]="isPodiumPosition(row.result.position) ? podiumColors[row.result.position - 1] : null"
+                >
+                  {{ formatClassificationPosition(row.result) }}
+                </span>
+
+                @if (row.driver; as driver) {
+                  <pp-driver-avatar
+                    [headshotUrl]="driver.headshot_url"
+                    [name]="driver.full_name"
+                    [acronym]="driver.name_acronym"
+                    [driverNumber]="driver.driver_number"
+                    [teamColor]="formatTeamColor(driver.team_colour)"
+                    size="sm"
+                  />
+                  <div class="session-detail__driver-info">
+                    <span class="session-detail__driver-name">{{ driver.full_name }}</span>
+                    <span class="session-detail__team-name">{{ driver.team_name }}</span>
+                  </div>
+                } @else {
+                  <div class="session-detail__driver-info">
+                    <span class="session-detail__driver-name">Driver #{{ row.result.driver_number }}</span>
+                  </div>
+                }
+
+                <div class="session-detail__result-meta">
+                  @if (resultStatus(row)) {
+                    <span class="session-detail__status">{{ resultStatus(row) }}</span>
+                  } @else {
+                    <span class="session-detail__laps">{{ row.result.number_of_laps }} laps</span>
+                    @if (getGapToLeader(row.result); as gap) {
+                      <span class="session-detail__gap">{{ formatGap(gap) }}</span>
+                    }
+                  }
+                </div>
+              </div>
+            </pp-card>
+          }
+        </div>
+      </section>
+    } @else {
+      <pp-empty-state
+        icon="📊"
+        title="No results yet"
+        message="Results will appear here once the session is complete."
+      />
+    }
+
+    @if (isSessionCompleted(s)) {
+      @defer (on viewport) {
+        <section class="session-detail__circuit">
+          <pp-circuit-map
+            [imageUrl]="circuitImage()"
+            [circuitName]="s.circuit_short_name"
+            [loading]="false"
+          />
+        </section>
+      } @placeholder {
+        <div class="session-detail__lazy-placeholder">Circuit layout loads when scrolled into view</div>
+      }
+    }
+
+    @if (results().length) {
+      @defer (on viewport) {
+        <app-lazy-fastest-laps [sessionKey]="s.session_key" />
+      } @placeholder {
+        <div class="session-detail__lazy-placeholder">Fastest laps load when scrolled into view</div>
+      }
+    }
+
+    <div class="session-detail__back">
+      <pp-button variant="ghost">
+        <a routerLink="/calendar">← Back to Calendar</a>
+      </pp-button>
+    </div>
+  }
+}

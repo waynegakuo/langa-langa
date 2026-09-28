@@ -1,0 +1,29 @@
+// Paddock Pass — F1 Design Tokens
+$pp-red: #e10600;
+$pp-red-dark: #b80500;
+$pp-red-glow: rgba(225, 6, 0, 0.35);
+
+$pp-bg-primary: #0a0a0f;
+$pp-bg-secondary: #12121a;
+$pp-bg-elevated: #1a1a24;
+$pp-bg-card: #16161f;
+
+$pp-text-primary: #f5f5f7;
+$pp-text-secondary: #a0a0b0;
+$pp-text-muted: #6b6b7b;
+
+$pp-border: rgba(255, 255, 255, 0.08);
+$pp-border-accent: rgba(225, 6, 0, 0.4);
+
+$pp-font-display: 'Orbitron', 'Rajdhani', system-ui, sans-serif;
+$pp-font-body: 'Inter', system-ui, sans-serif;
+$pp-font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+$pp-radius-sm: 4px;
+$pp-radius-md: 8px;
+$pp-radius-lg: 12px;
+
+$pp-shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+$pp-shadow-glow: 0 0 20px $pp-red-glow;
+
+$pp-transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);

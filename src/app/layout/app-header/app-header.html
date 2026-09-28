@@ -1,0 +1,63 @@
+<header class="app-header">
+  <div class="app-header__inner">
+    <a routerLink="/" class="app-header__brand">
+      <span class="app-header__logo">PP</span>
+      <div class="app-header__brand-text">
+        <span class="app-header__name">Paddock Pass</span>
+        <span class="app-header__tagline">F1 Live Data</span>
+      </div>
+    </a>
+
+    <div class="app-header__actions">
+      <nav class="app-header__nav app-header__nav--desktop" aria-label="Main navigation">
+        @for (link of navLinks; track link.path) {
+          <a
+            [routerLink]="link.path"
+            routerLinkActive="app-header__link--active"
+            [routerLinkActiveOptions]="{ exact: link.exact }"
+            class="app-header__link"
+          >
+            {{ link.label }}
+          </a>
+        }
+      </nav>
+
+      <pp-season-selector />
+
+      <div class="app-header__menu" #menuRoot>
+        <button
+          type="button"
+          class="app-header__menu-toggle"
+          [class.app-header__menu-toggle--open]="menuOpen()"
+          [attr.aria-expanded]="menuOpen()"
+          aria-controls="app-header-nav-mobile"
+          aria-label="Toggle navigation menu"
+          (click)="toggleMenu()"
+        >
+          <span class="app-header__menu-icon" aria-hidden="true"></span>
+        </button>
+
+        @if (menuOpen()) {
+          <nav
+            id="app-header-nav-mobile"
+            class="app-header__nav app-header__nav--mobile"
+            aria-label="Main navigation"
+          >
+            @for (link of navLinks; track link.path) {
+              <a
+                [routerLink]="link.path"
+                routerLinkActive="app-header__link--active"
+                [routerLinkActiveOptions]="{ exact: link.exact }"
+                class="app-header__link"
+                (click)="closeMenu()"
+              >
+                {{ link.label }}
+              </a>
+            }
+          </nav>
+        }
+      </div>
+    </div>
+  </div>
+  <div class="app-header__stripe"></div>
+</header>

@@ -1,0 +1,73 @@
+@use 'styles/tokens' as *;
+@use 'styles/mixins' as *;
+
+.pp-circuit-map {
+  margin: 0;
+  padding: 1.25rem;
+  background: $pp-bg-secondary;
+  border: 1px solid $pp-border;
+  border-radius: $pp-radius-lg;
+  @include carbon-texture;
+
+  &__caption {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &__label {
+    font-family: $pp-font-display;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $pp-text-muted;
+  }
+
+  &__name {
+    font-family: $pp-font-display;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: $pp-text-primary;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+  }
+
+  &__placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 220px;
+    border: 1px dashed $pp-border;
+    border-radius: $pp-radius-md;
+    color: $pp-text-secondary;
+    font-size: 0.875rem;
+
+    &--empty {
+      color: $pp-text-muted;
+      font-size: 0.8125rem;
+    }
+  }
+
+  &__loading-text {
+    font-family: $pp-font-display;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    animation: pp-circuit-pulse 1.4s ease-in-out infinite;
+  }
+}
+
+@keyframes pp-circuit-pulse {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 1; }
+}

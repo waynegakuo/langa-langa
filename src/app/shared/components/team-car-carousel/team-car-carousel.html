@@ -1,0 +1,103 @@
+<div
+  class="team-carousel"
+  role="region"
+  aria-roledescription="carousel"
+  aria-label="Formula 1 team cars"
+  [class.team-carousel--prev]="transitionDirection() === 'prev'"
+  [class.team-carousel--next]="transitionDirection() === 'next'"
+  [style.--team-color]="activeTeam() ? '#' + formatTeamColor(activeTeam()!.teamColour) : '#e10600'"
+  (mouseenter)="pause()"
+  (mouseleave)="resume()"
+  (focusin)="pause()"
+  (focusout)="resume()"
+>
+  <div class="team-carousel__stage">
+    <div class="team-carousel__backdrop" aria-hidden="true">
+      <div class="team-carousel__speed-lines"></div>
+      <div class="team-carousel__glow"></div>
+    </div>
+
+    @if (loading()) {
+      <div class="team-carousel__loading">
+        <span class="team-carousel__loading-text">Loading grid…</span>
+      </div>
+    } @else if (teams().length) {
+      <div class="team-carousel__slides" aria-live="polite">
+        @for (team of teams(); track team.teamName; let i = $index) {
+          <div
+            class="team-carousel__slide"
+            [class.team-carousel__slide--active]="currentIndex() === i"
+            [attr.aria-hidden]="currentIndex() !== i"
+            [inert]="currentIndex() !== i"
+          >
+            @if (team.carImageUrl) {
+              <div class="team-carousel__car-wrap">
+                <img
+                  class="team-carousel__car-image"
+                  [src]="team.carImageUrl"
+                  [alt]="team.teamName + ' F1 car'"
+                  loading="lazy"
+                />
+              </div>
+            }
+
+            <div class="team-carousel__team">
+              @if (team.logoUrl) {
+                <img
+                  class="team-carousel__logo"
+                  [src]="team.logoUrl"
+                  [alt]="team.teamName + ' logo'"
+                  loading="lazy"
+                  (error)="onLogoError($event)"
+                />
+              }
+              <div class="team-carousel__team-copy">
+                <span class="team-carousel__team-label">Constructor</span>
+                <h3 class="team-carousel__team-name">{{ team.teamName }}</h3>
+                <p class="team-carousel__drivers">{{ team.drivers.join(' · ') }}</p>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    } @else {
+      <div class="team-carousel__empty">Team grid unavailable</div>
+    }
+  </div>
+
+  @if (!loading() && teams().length > 1) {
+    <div class="team-carousel__controls">
+      <button
+        type="button"
+        class="team-carousel__nav"
+        aria-label="Previous team"
+        (click)="prev()"
+      >
+        ‹
+      </button>
+
+      <div class="team-carousel__dots" role="tablist" aria-label="Select team">
+        @for (entry of teams(); track entry.teamName; let i = $index) {
+          <button
+            type="button"
+            class="team-carousel__dot"
+            role="tab"
+            [class.team-carousel__dot--active]="currentIndex() === i"
+            [attr.aria-selected]="currentIndex() === i"
+            [attr.aria-label]="entry.teamName"
+            (click)="goTo(i)"
+          ></button>
+        }
+      </div>
+
+      <button
+        type="button"
+        class="team-carousel__nav"
+        aria-label="Next team"
+        (click)="next()"
+      >
+        ›
+      </button>
+    </div>
+  }
+</div>

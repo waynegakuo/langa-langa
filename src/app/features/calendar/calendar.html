@@ -1,0 +1,112 @@
+<pp-page-header
+  eyebrow="Season Calendar"
+  [title]="seasonService.selectedYear() + ' Race Weekends'"
+  subtitle="Every practice, qualifying, sprint, and race session for the current season."
+/>
+
+@if (loading()) {
+  <pp-spinner />
+} @else if (!meetingGroups().length) {
+  <pp-empty-state
+    icon="📅"
+    title="No sessions found"
+    message="Could not load calendar data. Please try again later."
+  />
+} @else {
+  <div class="calendar-layout">
+    <aside class="calendar-nav" aria-label="Race round navigation">
+      <p class="calendar-nav__heading">Rounds</p>
+      <nav class="calendar-nav__list">
+        @for (group of meetingGroups(); track group.meetingKey; let i = $index) {
+          <button
+            type="button"
+            class="calendar-nav__item"
+            [class.calendar-nav__item--active]="activeRound() === group.meetingKey"
+            [class.calendar-nav__item--completed]="isRoundCompleted(group)"
+            [attr.aria-label]="
+              'Round ' +
+              (i + 1) +
+              ', ' +
+              group.location +
+              (isRoundCompleted(group) ? ', completed' : ', upcoming')
+            "
+            (click)="scrollToRound(group.meetingKey)"
+          >
+            <span class="calendar-nav__round">R{{ i + 1 }}</span>
+            <span class="calendar-nav__copy">
+              <span class="calendar-nav__location">{{ group.location }}</span>
+              <span class="calendar-nav__meta">{{ group.countryName }}</span>
+            </span>
+            @if (isRoundCompleted(group)) {
+              <span class="calendar-nav__tag calendar-nav__tag--completed">Completed</span>
+            } @else {
+              <span class="calendar-nav__tag calendar-nav__tag--upcoming">Upcoming</span>
+            }
+          </button>
+        }
+      </nav>
+    </aside>
+
+    <div class="calendar">
+      @for (group of meetingGroups(); track group.meetingKey; let i = $index) {
+        <section
+          class="calendar__weekend"
+          [id]="roundId(group.meetingKey)"
+          [attr.aria-labelledby]="'calendar-round-title-' + group.meetingKey"
+        >
+          <header class="calendar__weekend-header">
+            <div>
+              <h2
+                class="calendar__location"
+                [id]="'calendar-round-title-' + group.meetingKey"
+              >
+                {{ group.location }} Grand Prix
+              </h2>
+              <p class="calendar__meta">{{ group.circuitName }} · {{ group.countryName }}</p>
+            </div>
+            <span class="calendar__round">Round {{ i + 1 }}</span>
+          </header>
+
+          <div class="calendar__sessions grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+            @for (session of group.sessions; track session.session_key) {
+              <pp-card
+                [interactive]="true"
+                [class.calendar__session--completed]="isSessionCompleted(session)"
+                [class.calendar__session--upcoming]="!isSessionCompleted(session)"
+              >
+                <a [routerLink]="['/sessions', session.session_key]" class="calendar__session-link">
+                  <div class="calendar__session-top">
+                    <pp-badge [variant]="sessionBadgeVariant(session.session_type)">
+                      {{ session.session_name }}
+                    </pp-badge>
+                    @if (isSessionCompleted(session)) {
+                      <span class="calendar__completed-tag">Completed</span>
+                    } @else {
+                      <span class="calendar__upcoming-tag">Upcoming</span>
+                    }
+                  </div>
+
+                  @if (isMainRace(session)) {
+                    <div class="calendar__race-title-row">
+                      <h3 class="calendar__race-name">{{ formatRaceTitle(session) }}</h3>
+                      <span class="calendar__race-venue">{{ formatSessionVenue(session) }}</span>
+                    </div>
+                  } @else {
+                    <p class="calendar__session-venue">{{ formatSessionVenue(session) }}</p>
+                  }
+
+                  <p class="calendar__session-date">{{ formatSessionDate(session.date_start) }}</p>
+                  <p class="calendar__session-time">{{ formatSessionTime(session.date_start) }}</p>
+
+                  @if (isSessionCompleted(session) && isMainRace(session)) {
+                    <p class="calendar__session-cta">View results →</p>
+                  }
+                </a>
+              </pp-card>
+            }
+          </div>
+        </section>
+      }
+    </div>
+  </div>
+}

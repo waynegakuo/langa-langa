@@ -1,0 +1,33 @@
+@use '../../../styles/tokens' as *;
+
+.app-shell {
+  min-height: calc(100vh - 120px);
+
+  &__content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
+  }
+
+  &__footer {
+    padding: 1.5rem;
+    text-align: center;
+    border-top: 1px solid $pp-border;
+
+    p {
+      margin: 0;
+      font-size: 0.75rem;
+      color: $pp-text-muted;
+    }
+
+    a {
+      color: $pp-red;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+
+      &:hover {
+        color: #ff3333;
+      }
+    }
+  }
+}

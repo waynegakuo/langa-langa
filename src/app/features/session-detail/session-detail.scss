@@ -1,0 +1,201 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.session-detail {
+  &__hero {
+    margin-bottom: 2.5rem;
+  }
+
+  &__eyebrow {
+    display: block;
+    font-family: $pp-font-display;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $pp-red;
+    margin-bottom: 0.5rem;
+  }
+
+  &__title-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.1;
+  }
+
+  &__venue {
+    font-size: 1rem;
+    color: $pp-text-secondary;
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  &__datetime {
+    font-size: 0.875rem;
+    color: $pp-text-secondary;
+  }
+
+  &__status-tag {
+    font-family: $pp-font-display;
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $pp-text-muted;
+    padding: 0.2rem 0.5rem;
+    background: $pp-bg-elevated;
+    border-radius: $pp-radius-sm;
+  }
+
+  &__circuit {
+    margin-bottom: 2.5rem;
+  }
+
+  &__lazy-placeholder {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    font-size: 0.75rem;
+    text-align: center;
+    color: $pp-text-muted;
+    border: 1px dashed $pp-border;
+    border-radius: $pp-radius-md;
+  }
+
+  &__section {
+    margin-bottom: 2.5rem;
+  }
+
+  &__heading {
+    margin: 0 0 1rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: $pp-text-secondary;
+  }
+
+  &__results {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__result-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__position {
+    min-width: 2.5rem;
+    font-family: $pp-font-display;
+    font-size: 1.125rem;
+    font-weight: 900;
+    color: $pp-text-muted;
+
+    &--out {
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      color: $pp-red;
+    }
+  }
+
+  &__driver-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+
+  &__driver-name {
+    font-weight: 600;
+    @include truncate;
+  }
+
+  &__team-name {
+    font-size: 0.75rem;
+    color: $pp-text-muted;
+    @include truncate;
+  }
+
+  &__result-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.125rem;
+    text-align: right;
+  }
+
+  &__laps {
+    font-size: 0.75rem;
+    color: $pp-text-secondary;
+  }
+
+  &__gap {
+    font-family: $pp-font-mono;
+    font-size: 0.8125rem;
+    color: $pp-text-muted;
+  }
+
+  &__status {
+    font-family: $pp-font-display;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: $pp-red;
+  }
+
+  &__fastest {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.75rem;
+  }
+
+  &__fastest-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  &__fastest-rank {
+    font-family: $pp-font-display;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: $pp-text-muted;
+  }
+
+  &__fastest-driver {
+    flex: 1;
+    font-weight: 600;
+  }
+
+  &__fastest-time {
+    font-family: $pp-font-mono;
+    font-size: 0.875rem;
+    color: $pp-red;
+  }
+
+  &__back {
+    margin-top: 2rem;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+}

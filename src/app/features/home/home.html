@@ -1,0 +1,94 @@
+<section class="home">
+  <div class="home__hero">
+    <div class="home__hero-visual">
+      <app-team-car-carousel
+        class="home__hero-carousel"
+        [teams]="carouselTeams()"
+        [loading]="carouselLoading()"
+      />
+    </div>
+
+    <div class="home__hero-content">
+      <span class="home__season">{{ seasonService.selectedYear() }} Season</span>
+      <h1 class="home__title">
+        Your All-Access<br />
+        <span class="home__title-accent">Paddock Pass</span>
+      </h1>
+      <p class="home__subtitle">
+        Live sessions, driver grids, race results, and lap times — all powered by OpenF1.
+      </p>
+      <div class="home__actions">
+        <pp-button variant="primary" size="lg">
+          <a routerLink="/calendar">View Calendar</a>
+        </pp-button>
+        <pp-button variant="secondary" size="lg">
+          <a routerLink="/drivers">Explore Drivers</a>
+        </pp-button>
+      </div>
+    </div>
+  </div>
+
+  @if (loading()) {
+    <pp-spinner />
+  } @else {
+    @if (seasonComplete()) {
+      <div class="home__season-banner">
+        {{ seasonService.selectedYear() }} season complete — browse full results in the calendar.
+      </div>
+    }
+
+    <div class="home__stats grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <pp-stat-block
+        label="Season"
+        [value]="seasonService.selectedYear().toString()"
+        subtext="Formula 1 World Championship"
+      />
+      <pp-stat-block label="Grand Prix" [value]="totalMeetings().toString()" subtext="Race weekends scheduled" />
+      <pp-stat-block label="Races" [value]="totalRaces().toString()" subtext="Main race sessions" />
+    </div>
+
+    @if (nextRace(); as race) {
+      <section class="home__section">
+        <h2 class="home__section-title">Next Race</h2>
+        <pp-card [interactive]="true" [teamColor]="'e10600'">
+          <a [routerLink]="['/sessions', race.session_key]" class="home__race-link">
+            <div class="home__race-header">
+              <pp-badge [variant]="sessionBadgeVariant(race.session_type)">{{ race.session_name }}</pp-badge>
+              <span class="home__race-date">{{ formatSessionDate(race.date_start) }}</span>
+            </div>
+            <div class="home__race-title-row">
+              <h3 class="home__race-name">{{ formatRaceTitle(race) }}</h3>
+              <span class="home__race-venue">{{ formatSessionVenue(race) }}</span>
+            </div>
+            <p class="home__race-time">{{ formatSessionTime(race.date_start) }}</p>
+          </a>
+        </pp-card>
+      </section>
+    }
+
+    @if (recentRaces().length) {
+      <section class="home__section">
+        <h2 class="home__section-title">Recent Results</h2>
+        <div class="home__race-grid">
+          @for (race of recentRaces(); track race.session_key) {
+            <pp-card [interactive]="true">
+              <a [routerLink]="['/sessions', race.session_key]" class="home__race-link">
+                <div class="home__race-header">
+                  <pp-badge [variant]="sessionBadgeVariant(race.session_type)">
+                    {{ race.session_name }}
+                  </pp-badge>
+                  <span class="home__race-date">{{ formatSessionDate(race.date_start) }}</span>
+                </div>
+                <div class="home__race-title-row">
+                  <h3 class="home__race-name home__race-name--sm">{{ formatRaceTitle(race) }}</h3>
+                  <span class="home__race-venue">{{ formatSessionVenue(race) }}</span>
+                </div>
+                <p class="home__race-cta">View results →</p>
+              </a>
+            </pp-card>
+          }
+        </div>
+      </section>
+    }
+  }
+</section>

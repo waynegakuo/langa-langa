@@ -1,0 +1,232 @@
+@use '../../../styles/tokens' as *;
+
+.drivers-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  align-items: start;
+
+  @media (min-width: 1024px) {
+    &--has-detail {
+      grid-template-columns: minmax(0, 1fr) minmax(240px, 300px);
+    }
+  }
+}
+
+.drivers {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  min-width: 0;
+
+  &__team-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  &__team-stripe {
+    width: 4px;
+    height: 24px;
+    background: var(--team-color, $pp-red);
+    border-radius: 2px;
+  }
+
+  &__team-name {
+    margin: 0;
+    font-size: 1.125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  &__card-button {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+    font: inherit;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  &__card {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+
+  &__acronym {
+    font-family: $pp-font-display;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: $pp-text-muted;
+  }
+
+  &__name {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+
+  &__number {
+    font-family: $pp-font-mono;
+    font-size: 0.875rem;
+    color: $pp-text-secondary;
+  }
+
+  &__detail {
+    position: sticky;
+    top: 1rem;
+    background: $pp-bg-secondary;
+    border: 1px solid $pp-border;
+    border-radius: $pp-radius-lg;
+    overflow: hidden;
+
+    @media (max-width: 1023px) {
+      position: static;
+      order: -1;
+      max-width: 28rem;
+    }
+  }
+
+  &__detail-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.625rem 0.875rem;
+    border-bottom: 1px solid $pp-border;
+  }
+
+  &__detail-label {
+    font-family: $pp-font-display;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $pp-text-muted;
+  }
+
+  &__detail-hero {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 0.875rem;
+    border-bottom: 1px solid $pp-border;
+  }
+
+  &__detail-intro {
+    min-width: 0;
+  }
+
+  &__detail-body {
+    padding: 0.875rem;
+  }
+
+  &__detail-acronym {
+    display: block;
+    font-family: $pp-font-display;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: $pp-text-muted;
+  }
+
+  &__detail-name {
+    margin: 0.125rem 0 0;
+    font-size: 1.125rem;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
+  &__detail-meta {
+    margin: 0.25rem 0 0;
+    font-size: 0.8125rem;
+    color: $pp-text-secondary;
+  }
+
+  &__detail-stats {
+    display: grid;
+    gap: 0.5rem;
+    margin: 0;
+
+    &--race {
+      margin-top: 0.5rem;
+    }
+  }
+
+  &__detail-stat {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+
+    dt {
+      margin: 0;
+      font-size: 0.6875rem;
+      color: $pp-text-muted;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    dd {
+      margin: 0;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-align: right;
+    }
+  }
+
+  &__detail-race {
+    margin-top: 0.875rem;
+    padding-top: 0.875rem;
+    border-top: 1px solid $pp-border;
+  }
+
+  &__detail-race-title {
+    margin: 0;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  &__detail-race-date {
+    margin: 0.125rem 0 0;
+    font-size: 0.75rem;
+    color: $pp-text-secondary;
+  }
+
+  &__detail-position {
+    font-family: $pp-font-display;
+    font-size: 1rem;
+
+    &--podium {
+      color: $pp-red;
+    }
+  }
+}
