@@ -1,0 +1,73 @@
+@use 'styles/tokens' as *;
+@use 'styles/mixins' as *;
+
+.langa-circuit-map {
+  margin: 0;
+  padding: 1.25rem;
+  background: $langa-bg-secondary;
+  border: 1px solid $langa-border;
+  border-radius: $langa-radius-lg;
+  @include carbon-texture;
+
+  &__caption {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &__label {
+    font-family: $langa-font-display;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $langa-text-muted;
+  }
+
+  &__name {
+    font-family: $langa-font-display;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: $langa-text-primary;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+  }
+
+  &__placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 220px;
+    border: 1px dashed $langa-border;
+    border-radius: $langa-radius-md;
+    color: $langa-text-secondary;
+    font-size: 0.875rem;
+
+    &--empty {
+      color: $langa-text-muted;
+      font-size: 0.8125rem;
+    }
+  }
+
+  &__loading-text {
+    font-family: $langa-font-display;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    animation: langa-circuit-pulse 1.4s ease-in-out infinite;
+  }
+}
+
+@keyframes langa-circuit-pulse {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 1; }
+}

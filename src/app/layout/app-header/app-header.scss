@@ -4,9 +4,9 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba($pp-bg-primary, 0.92);
+  background: rgba($langa-bg-primary, 0.92);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid $pp-border;
+  border-bottom: 1px solid $langa-border;
 
   &__inner {
     display: flex;
@@ -30,9 +30,9 @@
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: $pp-red;
+    background: $langa-red;
     color: white;
-    font-family: $pp-font-display;
+    font-family: $langa-font-display;
     font-weight: 900;
     font-size: 0.875rem;
     letter-spacing: -0.02em;
@@ -45,12 +45,12 @@
   }
 
   &__name {
-    font-family: $pp-font-display;
+    font-family: $langa-font-display;
     font-size: 1rem;
     font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: $pp-text-primary;
+    color: $langa-text-primary;
     line-height: 1.2;
   }
 
@@ -58,7 +58,7 @@
     font-size: 0.625rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: $pp-text-muted;
+    color: $langa-text-muted;
   }
 
   &__actions {
@@ -84,28 +84,28 @@
     width: 2.5rem;
     height: 2.5rem;
     padding: 0;
-    border: 1px solid $pp-border;
-    border-radius: $pp-radius-sm;
+    border: 1px solid $langa-border;
+    border-radius: $langa-radius-sm;
     background: rgba(255, 255, 255, 0.04);
-    color: $pp-text-primary;
+    color: $langa-text-primary;
     cursor: pointer;
     transition:
-      border-color $pp-transition,
-      background-color $pp-transition,
-      color $pp-transition;
+      border-color $langa-transition,
+      background-color $langa-transition,
+      color $langa-transition;
 
     &:hover {
-      border-color: $pp-border-accent;
+      border-color: $langa-border-accent;
       background: rgba(255, 255, 255, 0.08);
     }
 
     &:focus-visible {
-      outline: 2px solid $pp-red;
+      outline: 2px solid $langa-red;
       outline-offset: 2px;
     }
 
     &--open {
-      border-color: $pp-border-accent;
+      border-color: $langa-border-accent;
       background: rgba(225, 6, 0, 0.1);
     }
   }
@@ -116,7 +116,7 @@
     width: 1.125rem;
     height: 2px;
     background: currentColor;
-    transition: background-color $pp-transition;
+    transition: background-color $langa-transition;
 
     &::before,
     &::after {
@@ -127,8 +127,8 @@
       height: 2px;
       background: currentColor;
       transition:
-        transform $pp-transition,
-        top $pp-transition;
+        transform $langa-transition,
+        top $langa-transition;
     }
 
     &::before {
@@ -164,39 +164,39 @@
     gap: 0.125rem;
     min-width: 11rem;
     padding: 0.375rem;
-    background: rgba($pp-bg-elevated, 0.98);
+    background: rgba($langa-bg-elevated, 0.98);
     backdrop-filter: blur(12px);
-    border: 1px solid $pp-border;
-    border-radius: $pp-radius-md;
-    box-shadow: $pp-shadow-card;
+    border: 1px solid $langa-border;
+    border-radius: $langa-radius-md;
+    box-shadow: $langa-shadow-card;
   }
 
   &__link {
     display: block;
     padding: 0.5rem 1rem;
-    font-family: $pp-font-display;
+    font-family: $langa-font-display;
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: $pp-text-secondary;
-    border-radius: $pp-radius-sm;
-    transition: all $pp-transition;
+    color: $langa-text-secondary;
+    border-radius: $langa-radius-sm;
+    transition: all $langa-transition;
 
     &:hover {
-      color: $pp-text-primary;
+      color: $langa-text-primary;
       background: rgba(255, 255, 255, 0.05);
     }
 
     &--active {
-      color: $pp-red;
+      color: $langa-red;
       background: rgba(225, 6, 0, 0.1);
     }
   }
 
   &__stripe {
     height: 2px;
-    background: linear-gradient(90deg, $pp-red 0%, transparent 50%, $pp-red 100%);
+    background: linear-gradient(90deg, $langa-red 0%, transparent 50%, $langa-red 100%);
   }
 }
 

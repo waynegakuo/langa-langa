@@ -14,11 +14,11 @@ import { Session } from '../../core/models/openf1.models';
 import { OpenF1ApiService } from '../../core/services/openf1-api.service';
 import { SeasonService } from '../../core/services/season.service';
 import {
-  PpBadge,
-  PpCard,
-  PpEmptyState,
-  PpPageHeader,
-  PpPageLoader,
+  LangaBadge,
+  LangaCard,
+  LangaEmptyState,
+  LangaPageHeader,
+  LangaPageLoader,
 } from '../../design-system';
 import {
   filterActiveSessions,
@@ -43,11 +43,11 @@ export interface MeetingGroup {
   standalone: true,
   imports: [
     RouterLink,
-    PpBadge,
-    PpCard,
-    PpEmptyState,
-    PpPageHeader,
-    PpPageLoader,
+    LangaBadge,
+    LangaCard,
+    LangaEmptyState,
+    LangaPageHeader,
+    LangaPageLoader,
   ],
   templateUrl: './calendar.html',
   styleUrl: './calendar.scss',

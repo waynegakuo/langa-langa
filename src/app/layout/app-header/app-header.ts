@@ -8,12 +8,12 @@ import {
 } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
-import { PpSeasonSelector } from '../../design-system';
+import { LangaSeasonSelector } from '../../design-system';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, PpSeasonSelector],
+  imports: [RouterLink, RouterLinkActive, LangaSeasonSelector],
   templateUrl: './app-header.html',
   styleUrl: './app-header.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

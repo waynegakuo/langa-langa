@@ -7,14 +7,14 @@ import { Driver, Session, SessionResult } from '../../core/models/openf1.models'
 import { OpenF1ApiService } from '../../core/services/openf1-api.service';
 import { LazyFastestLaps } from '../../shared/components/lazy-fastest-laps/lazy-fastest-laps';
 import {
-  PpBadge,
-  PpButton,
-  PpCard,
-  PpCircuitMap,
-  PpDriverAvatar,
-  PpEmptyState,
-  PpPodium,
-  PpPageLoader,
+  LangaBadge,
+  LangaButton,
+  LangaCard,
+  LangaCircuitMap,
+  LangaDriverAvatar,
+  LangaEmptyState,
+  LangaPodium,
+  LangaPageLoader,
 } from '../../design-system';
 import { PodiumEntry } from '../../shared/models/podium.model';
 import {
@@ -45,14 +45,14 @@ interface ResultRow {
   imports: [
     RouterLink,
     LazyFastestLaps,
-    PpCircuitMap,
-    PpBadge,
-    PpButton,
-    PpCard,
-    PpDriverAvatar,
-    PpEmptyState,
-    PpPodium,
-    PpPageLoader,
+    LangaCircuitMap,
+    LangaBadge,
+    LangaButton,
+    LangaCard,
+    LangaDriverAvatar,
+    LangaEmptyState,
+    LangaPodium,
+    LangaPageLoader,
   ],
   templateUrl: './session-detail.html',
   styleUrl: './session-detail.scss',

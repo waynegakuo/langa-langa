@@ -1,0 +1,27 @@
+@use 'styles/tokens' as *;
+
+.langa-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+
+  &__ring {
+    width: 40px;
+    height: 40px;
+    border: 3px solid $langa-bg-elevated;
+    border-top-color: $langa-red;
+    border-radius: 50%;
+    animation: langa-spin 0.8s linear infinite;
+  }
+
+  &--sm .langa-spinner__ring {
+    width: 24px;
+    height: 24px;
+    border-width: 2px;
+  }
+}
+
+@keyframes langa-spin {
+  to { transform: rotate(360deg); }
+}

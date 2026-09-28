@@ -8,7 +8,7 @@
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    color: $pp-text-secondary;
+    color: $langa-text-secondary;
   }
 
   &__grid {
@@ -24,10 +24,10 @@
   }
 
   &__rank {
-    font-family: $pp-font-display;
+    font-family: $langa-font-display;
     font-size: 0.75rem;
     font-weight: 700;
-    color: $pp-text-muted;
+    color: $langa-text-muted;
   }
 
   &__driver {
@@ -36,8 +36,8 @@
   }
 
   &__time {
-    font-family: $pp-font-mono;
+    font-family: $langa-font-mono;
     font-size: 0.875rem;
-    color: $pp-red;
+    color: $langa-red;
   }
 }

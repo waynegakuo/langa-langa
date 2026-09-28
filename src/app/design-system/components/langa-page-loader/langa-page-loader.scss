@@ -1,0 +1,121 @@
+@use 'styles/tokens' as *;
+
+.langa-page-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+
+  &--viewport {
+    min-height: calc(100vh - 8.5rem);
+  }
+
+  &--section {
+    min-height: 14rem;
+  }
+
+  &__animation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.875rem;
+  }
+
+  &__lights {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  &__light {
+    width: 0.875rem;
+    height: 0.875rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+    animation: langa-page-loader-light 2.4s ease-in-out infinite;
+  }
+
+  &__stripe {
+    width: 5.5rem;
+    height: 3px;
+    border-radius: 999px;
+    background: repeating-linear-gradient(
+      90deg,
+      $langa-red 0,
+      $langa-red 6px,
+      rgba(255, 255, 255, 0.85) 6px,
+      rgba(255, 255, 255, 0.85) 12px
+    );
+    background-size: 24px 3px;
+    animation: langa-page-loader-stripe 0.8s linear infinite;
+    opacity: 0.85;
+  }
+
+  &__message {
+    margin: 0;
+    max-width: 20rem;
+    font-family: $langa-font-display;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $langa-text-secondary;
+    animation: langa-page-loader-message 2800ms ease-in-out infinite;
+  }
+}
+
+@keyframes langa-page-loader-light {
+  0%,
+  55%,
+  100% {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  }
+
+  8%,
+  42% {
+    background: $langa-red;
+    box-shadow:
+      0 0 10px rgba(225, 6, 0, 0.55),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+  }
+}
+
+@keyframes langa-page-loader-stripe {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 24px 0;
+  }
+}
+
+@keyframes langa-page-loader-message {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+
+  12%,
+  88% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .langa-page-loader__light,
+  .langa-page-loader__stripe,
+  .langa-page-loader__message {
+    animation: none;
+  }
+
+  .langa-page-loader__light {
+    background: $langa-red;
+  }
+}

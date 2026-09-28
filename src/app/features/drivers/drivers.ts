@@ -5,12 +5,12 @@ import { Driver, Session, SessionResult } from '../../core/models/openf1.models'
 import { OpenF1ApiService } from '../../core/services/openf1-api.service';
 import { SeasonService } from '../../core/services/season.service';
 import {
-  PpCard,
-  PpDriverAvatar,
-  PpEmptyState,
-  PpModal,
-  PpPageHeader,
-  PpPageLoader,
+  LangaCard,
+  LangaDriverAvatar,
+  LangaEmptyState,
+  LangaModal,
+  LangaPageHeader,
+  LangaPageLoader,
 } from '../../design-system';
 import {
   formatClassificationPosition,
@@ -35,12 +35,12 @@ interface TeamGroup {
   selector: 'app-drivers',
   standalone: true,
   imports: [
-    PpCard,
-    PpDriverAvatar,
-    PpEmptyState,
-    PpModal,
-    PpPageHeader,
-    PpPageLoader,
+    LangaCard,
+    LangaDriverAvatar,
+    LangaEmptyState,
+    LangaModal,
+    LangaPageHeader,
+    LangaPageLoader,
   ],
   templateUrl: './drivers.html',
   styleUrl: './drivers.scss',

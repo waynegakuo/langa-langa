@@ -1,0 +1,28 @@
+@use 'styles/tokens' as *;
+
+.langa-stat-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  &__label {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $langa-text-muted;
+  }
+
+  &__value {
+    font-family: $langa-font-display;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $langa-text-primary;
+    line-height: 1.1;
+  }
+
+  &__subtext {
+    font-size: 0.75rem;
+    color: $langa-text-secondary;
+  }
+}

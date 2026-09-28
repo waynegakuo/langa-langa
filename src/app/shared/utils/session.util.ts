@@ -1,8 +1,8 @@
-import { PpBadgeVariant } from '../../design-system/components/pp-badge/pp-badge';
+import { LangaBadgeVariant } from '../../design-system/components/langa-badge/langa-badge';
 import { Session } from '../../core/models/openf1.models';
 
-export function sessionBadgeVariant(sessionType: string): PpBadgeVariant {
-  const map: Record<string, PpBadgeVariant> = {
+export function sessionBadgeVariant(sessionType: string): LangaBadgeVariant {
+  const map: Record<string, LangaBadgeVariant> = {
     Race: 'race',
     Qualifying: 'qualifying',
     Sprint: 'sprint',

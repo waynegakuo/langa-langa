@@ -1,29 +1,29 @@
 // Langa Langa — F1 Design Tokens
-$pp-red: #e10600;
-$pp-red-dark: #b80500;
-$pp-red-glow: rgba(225, 6, 0, 0.35);
+$langa-red: #e10600;
+$langa-red-dark: #b80500;
+$langa-red-glow: rgba(225, 6, 0, 0.35);
 
-$pp-bg-primary: #0a0a0f;
-$pp-bg-secondary: #12121a;
-$pp-bg-elevated: #1a1a24;
-$pp-bg-card: #16161f;
+$langa-bg-primary: #0a0a0f;
+$langa-bg-secondary: #12121a;
+$langa-bg-elevated: #1a1a24;
+$langa-bg-card: #16161f;
 
-$pp-text-primary: #f5f5f7;
-$pp-text-secondary: #a0a0b0;
-$pp-text-muted: #6b6b7b;
+$langa-text-primary: #f5f5f7;
+$langa-text-secondary: #a0a0b0;
+$langa-text-muted: #6b6b7b;
 
-$pp-border: rgba(255, 255, 255, 0.08);
-$pp-border-accent: rgba(225, 6, 0, 0.4);
+$langa-border: rgba(255, 255, 255, 0.08);
+$langa-border-accent: rgba(225, 6, 0, 0.4);
 
-$pp-font-display: 'Orbitron', 'Rajdhani', system-ui, sans-serif;
-$pp-font-body: 'Inter', system-ui, sans-serif;
-$pp-font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+$langa-font-display: 'Orbitron', 'Rajdhani', system-ui, sans-serif;
+$langa-font-body: 'Inter', system-ui, sans-serif;
+$langa-font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
-$pp-radius-sm: 4px;
-$pp-radius-md: 8px;
-$pp-radius-lg: 12px;
+$langa-radius-sm: 4px;
+$langa-radius-md: 8px;
+$langa-radius-lg: 12px;
 
-$pp-shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
-$pp-shadow-glow: 0 0 20px $pp-red-glow;
+$langa-shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+$langa-shadow-glow: 0 0 20px $langa-red-glow;
 
-$pp-transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+$langa-transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);

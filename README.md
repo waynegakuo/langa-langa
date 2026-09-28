@@ -35,18 +35,18 @@ Builds the app and deploys to Firebase Hosting.
 
 ## Design System
 
-Reusable `pp-*` components live in `src/app/design-system/`:
+Reusable `langa-*` components live in `src/app/design-system/`:
 
 | Component | Purpose |
 |-----------|---------|
-| `pp-button` | Primary, secondary, ghost actions |
-| `pp-card` | Surface container with optional team colour stripe |
-| `pp-badge` | Session type and status labels |
-| `pp-driver-avatar` | Driver headshot with number badge |
-| `pp-stat-block` | Metric display block |
-| `pp-spinner` | Loading indicator |
-| `pp-empty-state` | Empty/error states |
-| `pp-page-header` | Consistent page titles |
+| `langa-button` | Primary, secondary, ghost actions |
+| `langa-card` | Surface container with optional team colour stripe |
+| `langa-badge` | Session type and status labels |
+| `langa-driver-avatar` | Driver headshot with number badge |
+| `langa-stat-block` | Metric display block |
+| `langa-spinner` | Loading indicator |
+| `langa-empty-state` | Empty/error states |
+| `langa-page-header` | Consistent page titles |
 
 Design tokens and mixins are in `src/styles/_tokens.scss` and `src/styles/_mixins.scss`.
 

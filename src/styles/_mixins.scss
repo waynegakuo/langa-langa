@@ -9,7 +9,7 @@
   background-size: 8px 8px;
 }
 
-@mixin racing-stripe($color: $pp-red) {
+@mixin racing-stripe($color: $langa-red) {
   position: relative;
 
   &::before {
@@ -20,7 +20,7 @@
     width: 4px;
     height: 100%;
     background: $color;
-    border-radius: $pp-radius-sm 0 0 $pp-radius-sm;
+    border-radius: $langa-radius-sm 0 0 $langa-radius-sm;
   }
 }
 
@@ -30,16 +30,16 @@
 
 @mixin focus-ring {
   &:focus-visible {
-    outline: 2px solid $pp-red;
+    outline: 2px solid $langa-red;
     outline-offset: 2px;
   }
 }
 
 @mixin card-surface {
-  background: $pp-bg-card;
-  border: 1px solid $pp-border;
-  border-radius: $pp-radius-lg;
-  box-shadow: $pp-shadow-card;
+  background: $langa-bg-card;
+  border: 1px solid $langa-border;
+  border-radius: $langa-radius-lg;
+  box-shadow: $langa-shadow-card;
 }
 
 @mixin truncate {

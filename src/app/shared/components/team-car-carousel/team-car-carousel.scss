@@ -170,14 +170,14 @@ $team-carousel-transition: 520ms cubic-bezier(0.4, 0, 0.2, 1);
     background:
       radial-gradient(
         ellipse 88% 62% at 50% 88%,
-        color-mix(in srgb, var(--team-color, #{$pp-red}) 12%, transparent) 0%,
+        color-mix(in srgb, var(--team-color, #{$langa-red}) 12%, transparent) 0%,
         transparent 62%
       ),
       linear-gradient(
         180deg,
         transparent 0%,
         transparent 38%,
-        color-mix(in srgb, var(--team-color, #{$pp-red}) 4%, transparent) 58%,
+        color-mix(in srgb, var(--team-color, #{$langa-red}) 4%, transparent) 58%,
         transparent 100%
       );
     transition: background $team-carousel-transition;
@@ -205,10 +205,10 @@ $team-carousel-transition: 520ms cubic-bezier(0.4, 0, 0.2, 1);
   flex-direction: column;
   height: 100%;
   min-height: 220px;
-  border-radius: $pp-radius-lg;
+  border-radius: $langa-radius-lg;
   overflow: hidden;
-  background: rgba($pp-bg-card, 0.45);
-  border: 1px solid $pp-border;
+  background: rgba($langa-bg-card, 0.45);
+  border: 1px solid $langa-border;
   @include carbon-texture;
 
   &__stage {
@@ -286,21 +286,21 @@ $team-carousel-transition: 520ms cubic-bezier(0.4, 0, 0.2, 1);
     background:
       linear-gradient(
         90deg,
-        $pp-bg-primary 0%,
+        $langa-bg-primary 0%,
         transparent 16%,
         transparent 84%,
-        $pp-bg-primary 100%
+        $langa-bg-primary 100%
       ),
       radial-gradient(
         ellipse 88% 60% at 50% 85%,
-        color-mix(in srgb, var(--team-color, #{$pp-red}) 16%, transparent) 0%,
+        color-mix(in srgb, var(--team-color, #{$langa-red}) 16%, transparent) 0%,
         transparent 55%
       ),
       linear-gradient(
         180deg,
         transparent 35%,
-        color-mix(in srgb, var(--team-color, #{$pp-red}) 5%, $pp-bg-primary) 65%,
-        $pp-bg-primary 100%
+        color-mix(in srgb, var(--team-color, #{$langa-red}) 5%, $langa-bg-primary) 65%,
+        $langa-bg-primary 100%
       );
     transition: background $team-carousel-transition;
   }
@@ -314,12 +314,12 @@ $team-carousel-transition: 520ms cubic-bezier(0.4, 0, 0.2, 1);
     align-items: center;
     justify-content: center;
     min-height: 220px;
-    color: $pp-text-secondary;
+    color: $langa-text-secondary;
     font-size: 0.875rem;
   }
 
   &__loading-text {
-    font-family: $pp-font-display;
+    font-family: $langa-font-display;
     font-size: 0.75rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -346,12 +346,12 @@ $team-carousel-transition: 520ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &__team-label {
     display: block;
-    font-family: $pp-font-display;
+    font-family: $langa-font-display;
     font-size: 0.625rem;
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: $pp-text-muted;
+    color: $langa-text-muted;
   }
 
   &__team-name {
@@ -365,9 +365,9 @@ $team-carousel-transition: 520ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &__drivers {
     margin: 0.125rem 0 0;
-    font-family: $pp-font-mono;
+    font-family: $langa-font-mono;
     font-size: 0.6875rem;
-    color: $pp-text-secondary;
+    color: $langa-text-secondary;
   }
 
   &__car-wrap {
@@ -418,7 +418,7 @@ $team-carousel-transition: 520ms cubic-bezier(0.4, 0, 0.2, 1);
     width: 100%;
     max-width: 100%;
     overflow-x: auto;
-    overscroll-behavior-x: contain;
+    overscrolanga-behavior-x: contain;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
     padding: 0.125rem 0;
@@ -447,8 +447,8 @@ $team-carousel-transition: 520ms cubic-bezier(0.4, 0, 0.2, 1);
       background: rgba(255, 255, 255, 0.22);
       transition:
         width 320ms cubic-bezier(0.4, 0, 0.2, 1),
-        background-color $pp-transition,
-        box-shadow $pp-transition;
+        background-color $langa-transition,
+        box-shadow $langa-transition;
     }
 
     &:hover:not(&--active)::before {
@@ -457,14 +457,14 @@ $team-carousel-transition: 520ms cubic-bezier(0.4, 0, 0.2, 1);
 
     &--active::before {
       width: 1.25rem;
-      background: var(--team-color, $pp-red);
-      box-shadow: 0 0 10px color-mix(in srgb, var(--team-color, #{$pp-red}) 45%, transparent);
+      background: var(--team-color, $langa-red);
+      box-shadow: 0 0 10px color-mix(in srgb, var(--team-color, #{$langa-red}) 45%, transparent);
     }
 
     &:focus-visible {
-      outline: 2px solid $pp-red;
+      outline: 2px solid $langa-red;
       outline-offset: 1px;
-      border-radius: $pp-radius-sm;
+      border-radius: $langa-radius-sm;
     }
   }
 }

@@ -1,0 +1,64 @@
+@use 'styles/tokens' as *;
+@use 'styles/mixins' as *;
+
+.langa-card {
+  @include card-surface;
+  position: relative;
+  overflow: hidden;
+
+  &--interactive {
+    cursor: pointer;
+    transition:
+      transform $langa-transition,
+      border-color $langa-transition,
+      box-shadow $langa-transition,
+      background-color $langa-transition;
+
+    &:hover,
+    &:focus-within {
+      transform: translateY(-2px);
+      border-color: $langa-border-accent;
+      box-shadow: $langa-shadow-card, 0 0 0 1px rgba(225, 6, 0, 0.1);
+    }
+  }
+
+  &--selected {
+    transform: translateY(-2px);
+    background: $langa-bg-elevated;
+    border-color: $langa-border-accent;
+    box-shadow:
+      $langa-shadow-card,
+      0 0 0 1px rgba(225, 6, 0, 0.18),
+      0 0 24px rgba(225, 6, 0, 0.1);
+
+    .langa-card__stripe {
+      height: 4px;
+      box-shadow: 0 0 14px var(--team-color, $langa-red);
+    }
+  }
+
+  &--accent.langa-card--selected {
+    border-color: color-mix(in srgb, var(--team-color, #{$langa-red}) 45%, $langa-border);
+    box-shadow:
+      $langa-shadow-card,
+      0 0 0 1px color-mix(in srgb, var(--team-color, #{$langa-red}) 30%, transparent),
+      0 0 22px color-mix(in srgb, var(--team-color, #{$langa-red}) 16%, transparent);
+  }
+
+  &--interactive.langa-card--selected:hover {
+    transform: translateY(-2px);
+  }
+
+  &__stripe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--team-color, $langa-red);
+  }
+
+  &__body {
+    padding: 1.25rem;
+  }
+}

@@ -1,4 +1,4 @@
-<pp-page-header
+<langa-page-header
   eyebrow="Current Grid"
   title="Drivers & Teams"
   [subtitle]="sourceSession()
@@ -7,7 +7,7 @@
 />
 
 @if (loading()) {
-  <pp-page-loader
+  <langa-page-loader
     [fullViewport]="true"
     [messages]="[
       'Loading the grid…',
@@ -17,7 +17,7 @@
     ]"
   />
 } @else if (!teamGroups().length) {
-  <pp-empty-state
+  <langa-empty-state
     icon="👤"
     title="No driver data"
     message="Driver information is not available for the latest session."
@@ -33,7 +33,7 @@
 
         <div class="drivers__grid grid grid-cols-1 md:grid-cols-2 gap-4">
           @for (driver of team.drivers; track driver.driver_number) {
-            <pp-card
+            <langa-card
               [interactive]="true"
               [selected]="selectedDriverNumber() === driver.driver_number"
               [teamColor]="formatTeamColor(driver.team_colour)"
@@ -45,7 +45,7 @@
                 (click)="selectDriver(driver.driver_number)"
               >
                 <div class="drivers__card">
-                  <pp-driver-avatar
+                  <langa-driver-avatar
                     [headshotUrl]="driver.headshot_url"
                     [name]="driver.full_name"
                     [acronym]="driver.name_acronym"
@@ -60,14 +60,14 @@
                   </div>
                 </div>
               </button>
-            </pp-card>
+            </langa-card>
           }
         </div>
       </section>
     }
   </div>
 
-  <pp-modal
+  <langa-modal
     [open]="selectedDriver() !== null"
     title="Driver profile"
     [ariaLabel]="selectedDriver()?.full_name ?? 'Driver profile'"
@@ -76,7 +76,7 @@
     @if (selectedDriver(); as driver) {
       <div class="drivers__modal">
         <div class="drivers__modal-hero">
-          <pp-driver-avatar
+          <langa-driver-avatar
             [headshotUrl]="driver.headshot_url"
             [name]="driver.full_name"
             [acronym]="driver.name_acronym"
@@ -138,5 +138,5 @@
         }
       </div>
     }
-  </pp-modal>
+  </langa-modal>
 }

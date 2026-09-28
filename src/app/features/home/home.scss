@@ -16,12 +16,12 @@
 
   &__season {
     display: inline-block;
-    font-family: $pp-font-display;
+    font-family: $langa-font-display;
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: $pp-red;
+    color: $langa-red;
     margin-bottom: 1rem;
   }
 
@@ -34,14 +34,14 @@
   }
 
   &__title-accent {
-    color: $pp-red;
-    -webkit-text-fill-color: $pp-red;
+    color: $langa-red;
+    -webkit-text-filanga-color: $langa-red;
   }
 
   &__subtitle {
     margin: 0 0 2rem;
     font-size: 1.125rem;
-    color: $pp-text-secondary;
+    color: $langa-text-secondary;
     max-width: 560px;
     line-height: 1.6;
   }
@@ -87,10 +87,10 @@
     margin-bottom: 1.5rem;
     padding: 0.875rem 1.25rem;
     font-size: 0.875rem;
-    color: $pp-text-secondary;
+    color: $langa-text-secondary;
     background: rgba(255, 215, 0, 0.08);
     border: 1px solid rgba(255, 215, 0, 0.2);
-    border-radius: $pp-radius-md;
+    border-radius: $langa-radius-md;
   }
 
   &__stats {
@@ -99,9 +99,9 @@
     gap: 1.5rem;
     margin-bottom: 3rem;
     padding: 1.5rem;
-    background: $pp-bg-secondary;
-    border: 1px solid $pp-border;
-    border-radius: $pp-radius-lg;
+    background: $langa-bg-secondary;
+    border: 1px solid $langa-border;
+    border-radius: $langa-radius-lg;
   }
 
   &__section {
@@ -136,7 +136,7 @@
 
   &__race-date {
     font-size: 0.75rem;
-    color: $pp-text-muted;
+    color: $langa-text-muted;
   }
 
   &__race-title-row {
@@ -159,30 +159,30 @@
 
   &__race-venue {
     font-size: 0.8125rem;
-    color: $pp-text-secondary;
+    color: $langa-text-secondary;
     @include truncate;
   }
 
   &__race-circuit {
     margin: 0;
     font-size: 0.875rem;
-    color: $pp-text-secondary;
+    color: $langa-text-secondary;
   }
 
   &__race-time {
     margin: 0.75rem 0 0;
-    font-family: $pp-font-mono;
+    font-family: $langa-font-mono;
     font-size: 0.875rem;
-    color: $pp-red;
+    color: $langa-red;
   }
 
   &__race-cta {
     margin: 0.75rem 0 0;
-    font-family: $pp-font-display;
+    font-family: $langa-font-display;
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: $pp-red;
+    color: $langa-red;
   }
 }

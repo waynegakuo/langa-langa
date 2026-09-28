@@ -2,30 +2,30 @@ import { ChangeDetectionStrategy, Component, inject, input, OnInit, signal } fro
 
 import { Driver, Lap } from '../../../core/models/openf1.models';
 import { OpenF1ApiService } from '../../../core/services/openf1-api.service';
-import { PpCard, PpSpinner } from '../../../design-system';
+import { LangaCard, LangaSpinner } from '../../../design-system';
 import { LapTimePipe } from '../../pipes/lap-time-pipe';
 import { formatTeamColor } from '../../utils/team-color.util';
 
 @Component({
   selector: 'app-lazy-fastest-laps',
   standalone: true,
-  imports: [LapTimePipe, PpCard, PpSpinner],
+  imports: [LapTimePipe, LangaCard, LangaSpinner],
   template: `
     <section class="lazy-fastest-laps">
       <h2 class="lazy-fastest-laps__heading">Fastest Laps</h2>
 
       @if (loading()) {
-        <pp-spinner size="sm" />
+        <langa-spinner size="sm" />
       } @else if (entries().length) {
         <div class="lazy-fastest-laps__grid">
           @for (entry of entries(); track entry.driver.driver_number; let i = $index) {
-            <pp-card [teamColor]="formatTeamColor(entry.driver.team_colour)">
+            <langa-card [teamColor]="formatTeamColor(entry.driver.team_colour)">
               <div class="lazy-fastest-laps__row">
                 <span class="lazy-fastest-laps__rank">#{{ i + 1 }}</span>
                 <span class="lazy-fastest-laps__driver">{{ entry.driver.name_acronym }}</span>
                 <span class="lazy-fastest-laps__time">{{ entry.lap.lap_duration | lapTime }}</span>
               </div>
-            </pp-card>
+            </langa-card>
           }
         </div>
       }

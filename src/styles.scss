@@ -4,15 +4,15 @@
 @use 'tailwindcss' as *;
 
 @theme {
-  --color-pp-red: #e10600;
-  --color-pp-red-dark: #b80500;
-  --color-pp-bg: #0a0a0f;
-  --color-pp-bg-secondary: #12121a;
-  --color-pp-bg-elevated: #1a1a24;
-  --color-pp-bg-card: #16161f;
-  --color-pp-text: #f5f5f7;
-  --color-pp-text-secondary: #a0a0b0;
-  --color-pp-text-muted: #6b6b7b;
+  --color-langa-red: #e10600;
+  --color-langa-red-dark: #b80500;
+  --color-langa-bg: #0a0a0f;
+  --color-langa-bg-secondary: #12121a;
+  --color-langa-bg-elevated: #1a1a24;
+  --color-langa-bg-card: #16161f;
+  --color-langa-text: #f5f5f7;
+  --color-langa-text-secondary: #a0a0b0;
+  --color-langa-text-muted: #6b6b7b;
   --font-display: 'Orbitron', 'Rajdhani', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
@@ -25,7 +25,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scrolanga-behavior: smooth;
   overflow-x: clip;
 }
 
@@ -33,15 +33,15 @@ body {
   margin: 0;
   min-height: 100vh;
   overflow-x: clip;
-  background: $pp-bg-primary;
-  color: $pp-text-primary;
-  font-family: $pp-font-body;
+  background: $langa-bg-primary;
+  color: $langa-text-primary;
+  font-family: $langa-font-body;
   -webkit-font-smoothing: antialiased;
   @include carbon-texture;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $pp-font-display;
+  font-family: $langa-font-display;
   font-weight: 700;
   letter-spacing: 0.02em;
 }
@@ -62,14 +62,14 @@ img {
 }
 
 ::-webkit-scrollbar-track {
-  background: $pp-bg-secondary;
+  background: $langa-bg-secondary;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: $pp-text-muted;
+  background: $langa-text-muted;
   border-radius: 4px;
 
   &:hover {
-    background: $pp-text-secondary;
+    background: $langa-text-secondary;
   }
 }

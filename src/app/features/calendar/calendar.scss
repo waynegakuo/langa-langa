@@ -23,9 +23,9 @@
     z-index: 20;
     width: 100vw;
     margin-left: calc(50% - 50vw);
-    background: rgba($pp-bg-primary, 0.96);
+    background: rgba($langa-bg-primary, 0.96);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid $pp-border;
+    border-bottom: 1px solid $langa-border;
     isolation: isolate;
 
     &::before,
@@ -41,12 +41,12 @@
 
     &::before {
       left: 0;
-      background: linear-gradient(90deg, $pp-bg-primary 20%, transparent);
+      background: linear-gradient(90deg, $langa-bg-primary 20%, transparent);
     }
 
     &::after {
       right: 0;
-      background: linear-gradient(270deg, $pp-bg-primary 20%, transparent);
+      background: linear-gradient(270deg, $langa-bg-primary 20%, transparent);
     }
   }
 }
@@ -57,9 +57,9 @@
     top: 5.5rem;
     max-height: calc(100vh - 6.5rem);
     padding: 1rem;
-    background: rgba($pp-bg-secondary, 0.65);
-    border: 1px solid $pp-border;
-    border-radius: $pp-radius-lg;
+    background: rgba($langa-bg-secondary, 0.65);
+    border: 1px solid $langa-border;
+    border-radius: $langa-radius-lg;
   }
 
   @media (max-width: 1023px) {
@@ -69,7 +69,7 @@
     background: transparent;
     overflow-x: auto;
     overflow-y: hidden;
-    overscroll-behavior-x: contain;
+    overscrolanga-behavior-x: contain;
     -webkit-overflow-scrolling: touch;
     touch-action: pan-x;
     scrollbar-width: none;
@@ -82,12 +82,12 @@
   &__heading {
     display: none;
     margin: 0 0 0.75rem;
-    font-family: $pp-font-display;
+    font-family: $langa-font-display;
     font-size: 0.625rem;
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: $pp-text-muted;
+    color: $langa-text-muted;
 
     @media (min-width: 1024px) {
       display: block;
@@ -114,7 +114,7 @@
       width: max-content;
       min-width: 100%;
       padding: 0 1.5rem;
-      scroll-padding-inline: 1.5rem;
+      scrolanga-padding-inline: 1.5rem;
     }
   }
 
@@ -128,19 +128,19 @@
     text-align: left;
     background: transparent;
     border: 1px solid transparent;
-    border-radius: $pp-radius-sm;
+    border-radius: $langa-radius-sm;
     cursor: pointer;
     transition:
-      color $pp-transition,
-      background-color $pp-transition,
-      border-color $pp-transition;
+      color $langa-transition,
+      background-color $langa-transition,
+      border-color $langa-transition;
 
     @media (max-width: 1023px) {
       width: auto;
       min-width: 7.5rem;
       padding: 0.5rem 0.75rem;
       background: rgba(255, 255, 255, 0.03);
-      border-color: $pp-border;
+      border-color: $langa-border;
     }
 
     &:hover {
@@ -149,7 +149,7 @@
     }
 
     &:focus-visible {
-      outline: 2px solid $pp-red;
+      outline: 2px solid $langa-red;
       outline-offset: 2px;
     }
 
@@ -159,13 +159,13 @@
 
       .calendar-nav__round,
       .calendar-nav__location {
-        color: $pp-red;
+        color: $langa-red;
       }
     }
 
     &--completed:not(&--active) {
       .calendar-nav__location {
-        color: $pp-text-secondary;
+        color: $langa-text-secondary;
       }
     }
   }
@@ -173,12 +173,12 @@
   &__round {
     flex-shrink: 0;
     min-width: 2rem;
-    font-family: $pp-font-display;
+    font-family: $langa-font-display;
     font-size: 0.6875rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: $pp-text-muted;
+    color: $langa-text-muted;
   }
 
   &__copy {
@@ -189,12 +189,12 @@
   }
 
   &__location {
-    font-family: $pp-font-display;
+    font-family: $langa-font-display;
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: $pp-text-primary;
+    color: $langa-text-primary;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -207,7 +207,7 @@
   &__meta {
     display: none;
     font-size: 0.6875rem;
-    color: $pp-text-secondary;
+    color: $langa-text-secondary;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -221,16 +221,16 @@
     flex-shrink: 0;
     margin-left: auto;
     padding: 0.125rem 0.4375rem;
-    font-family: $pp-font-display;
+    font-family: $langa-font-display;
     font-size: 0.5625rem;
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    border-radius: $pp-radius-sm;
+    border-radius: $langa-radius-sm;
     white-space: nowrap;
 
     &--completed {
-      color: $pp-text-muted;
+      color: $langa-text-muted;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.06);
     }
@@ -250,7 +250,7 @@
   min-width: 0;
 
   &__weekend {
-    scroll-margin-top: 6rem;
+    scrolanga-margin-top: 6rem;
   }
 
   &__weekend-header {
@@ -259,7 +259,7 @@
     justify-content: space-between;
     margin-bottom: 1rem;
     padding-bottom: 0.75rem;
-    border-bottom: 1px solid $pp-border;
+    border-bottom: 1px solid $langa-border;
   }
 
   &__location {
@@ -271,19 +271,19 @@
   &__meta {
     margin: 0.25rem 0 0;
     font-size: 0.875rem;
-    color: $pp-text-secondary;
+    color: $langa-text-secondary;
   }
 
   &__round {
-    font-family: $pp-font-display;
+    font-family: $langa-font-display;
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: $pp-text-muted;
+    color: $langa-text-muted;
     padding: 0.25rem 0.75rem;
-    background: $pp-bg-elevated;
-    border-radius: $pp-radius-sm;
+    background: $langa-bg-elevated;
+    border-radius: $langa-radius-sm;
   }
 
   &__sessions {
@@ -330,26 +330,26 @@
 
   &__race-venue {
     font-size: 0.75rem;
-    color: $pp-text-secondary;
+    color: $langa-text-secondary;
   }
 
   &__session-venue {
     margin: 0 0 0.375rem;
     font-size: 0.75rem;
-    color: $pp-text-secondary;
+    color: $langa-text-secondary;
   }
 
   &__session-date {
     margin: 0;
     font-size: 0.875rem;
-    color: $pp-text-primary;
+    color: $langa-text-primary;
   }
 
   &__session-time {
     margin: 0.25rem 0 0;
-    font-family: $pp-font-mono;
+    font-family: $langa-font-mono;
     font-size: 0.8125rem;
-    color: $pp-text-muted;
+    color: $langa-text-muted;
   }
 
   &__session--upcoming {
@@ -366,16 +366,16 @@
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: $pp-text-muted;
+    color: $langa-text-muted;
   }
 
   &__session-cta {
     margin: 0.75rem 0 0;
-    font-family: $pp-font-display;
+    font-family: $langa-font-display;
     font-size: 0.6875rem;
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: $pp-red;
+    color: $langa-red;
   }
 }

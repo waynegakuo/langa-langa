@@ -23,11 +23,11 @@ import {
 } from '../../shared/utils/session.util';
 import { buildTeamCarouselEntries } from '../../shared/utils/team-carousel.util';
 import {
-  PpBadge,
-  PpButton,
-  PpCard,
-  PpPageLoader,
-  PpStatBlock,
+  LangaBadge,
+  LangaButton,
+  LangaCard,
+  LangaPageLoader,
+  LangaStatBlock,
 } from '../../design-system';
 import { formatSessionDate, formatSessionTime } from '../../shared/utils/time.util';
 
@@ -36,11 +36,11 @@ import { formatSessionDate, formatSessionTime } from '../../shared/utils/time.ut
   standalone: true,
   imports: [
     RouterLink,
-    PpBadge,
-    PpButton,
-    PpCard,
-    PpPageLoader,
-    PpStatBlock,
+    LangaBadge,
+    LangaButton,
+    LangaCard,
+    LangaPageLoader,
+    LangaStatBlock,
     TeamCarCarousel,
   ],
   templateUrl: './home.html',

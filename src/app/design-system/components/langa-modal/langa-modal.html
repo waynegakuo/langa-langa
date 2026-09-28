@@ -1,0 +1,35 @@
+@if (open()) {
+  <div
+    class="langa-modal"
+    role="dialog"
+    aria-modal="true"
+    [attr.aria-label]="ariaLabel() || title() || null"
+  >
+    <button
+      type="button"
+      class="langa-modal__backdrop"
+      aria-label="Close dialog"
+      (click)="onBackdropClick()"
+    ></button>
+
+    <div class="langa-modal__panel">
+      @if (title()) {
+        <header class="langa-modal__header">
+          <span class="langa-modal__title">{{ title() }}</span>
+          <button
+            type="button"
+            class="langa-modal__close"
+            aria-label="Close"
+            (click)="closed.emit()"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </header>
+      }
+
+      <div class="langa-modal__body">
+        <ng-content />
+      </div>
+    </div>
+  </div>
+}

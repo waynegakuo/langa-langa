@@ -1,0 +1,103 @@
+@use 'styles/tokens' as *;
+
+.langa-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+
+  &__backdrop {
+    position: absolute;
+    inset: 0;
+    padding: 0;
+    border: 0;
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(4px);
+    cursor: pointer;
+  }
+
+  &__panel {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 24rem);
+    max-height: min(90vh, 36rem);
+    overflow: auto;
+    background: $langa-bg-secondary;
+    border: 1px solid $langa-border;
+    border-radius: $langa-radius-lg;
+    box-shadow: $langa-shadow-card;
+    animation: langa-modal-enter 200ms ease-out;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid $langa-border;
+  }
+
+  &__title {
+    font-family: $langa-font-display;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $langa-text-muted;
+  }
+
+  &__close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    font-size: 1.375rem;
+    line-height: 1;
+    color: $langa-text-secondary;
+    background: transparent;
+    border: 0;
+    border-radius: $langa-radius-sm;
+    cursor: pointer;
+    transition:
+      color $langa-transition,
+      background-color $langa-transition;
+
+    &:hover {
+      color: $langa-text-primary;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $langa-red;
+      outline-offset: 2px;
+    }
+  }
+
+  &__body {
+    padding: 1rem;
+  }
+}
+
+@keyframes langa-modal-enter {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .langa-modal__panel {
+    animation: none;
+  }
+}

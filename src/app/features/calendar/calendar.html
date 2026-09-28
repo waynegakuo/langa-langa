@@ -1,11 +1,11 @@
-<pp-page-header
+<langa-page-header
   eyebrow="Season Calendar"
   [title]="seasonService.selectedYear() + ' Race Weekends'"
   subtitle="Every practice, qualifying, sprint, and race session for the current season."
 />
 
 @if (loading()) {
-  <pp-page-loader
+  <langa-page-loader
     [fullViewport]="true"
     [messages]="[
       'Loading race weekends…',
@@ -15,7 +15,7 @@
     ]"
   />
 } @else if (!meetingGroups().length) {
-  <pp-empty-state
+  <langa-empty-state
     icon="📅"
     title="No sessions found"
     message="Could not load calendar data. Please try again later."
@@ -79,16 +79,16 @@
 
           <div class="calendar__sessions grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
             @for (session of group.sessions; track session.session_key) {
-              <pp-card
+              <langa-card
                 [interactive]="true"
                 [class.calendar__session--completed]="isSessionCompleted(session)"
                 [class.calendar__session--upcoming]="!isSessionCompleted(session)"
               >
                 <a [routerLink]="['/sessions', session.session_key]" class="calendar__session-link">
                   <div class="calendar__session-top">
-                    <pp-badge [variant]="sessionBadgeVariant(session.session_type)">
+                    <langa-badge [variant]="sessionBadgeVariant(session.session_type)">
                       {{ session.session_name }}
-                    </pp-badge>
+                    </langa-badge>
                     @if (isSessionCompleted(session)) {
                       <span class="calendar__completed-tag">Completed</span>
                     } @else {
@@ -112,7 +112,7 @@
                     <p class="calendar__session-cta">View results →</p>
                   }
                 </a>
-              </pp-card>
+              </langa-card>
             }
           </div>
         </section>

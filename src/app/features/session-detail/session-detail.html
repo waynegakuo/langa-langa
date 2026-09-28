@@ -1,5 +1,5 @@
 @if (loading()) {
-  <pp-page-loader
+  <langa-page-loader
     [fullViewport]="true"
     [messages]="[
       'Loading session data…',
@@ -9,15 +9,15 @@
     ]"
   />
 } @else if (!session()) {
-  <pp-empty-state
+  <langa-empty-state
     icon="🏎️"
     title="Session not found"
     message="This session doesn't exist or data is unavailable."
   >
-    <pp-button variant="secondary">
+    <langa-button variant="secondary">
       <a routerLink="/calendar">Back to Calendar</a>
-    </pp-button>
-  </pp-empty-state>
+    </langa-button>
+  </langa-empty-state>
 } @else {
   @if (session(); as s) {
     <header class="session-detail__hero">
@@ -35,7 +35,7 @@
       </div>
 
       <div class="session-detail__meta">
-        <pp-badge [variant]="sessionBadgeVariant(s.session_type)">{{ s.session_type }}</pp-badge>
+        <langa-badge [variant]="sessionBadgeVariant(s.session_type)">{{ s.session_type }}</langa-badge>
         <span class="session-detail__datetime">
           {{ formatSessionDate(s.date_start) }} · {{ formatSessionTime(s.date_start) }}
         </span>
@@ -45,7 +45,7 @@
       </div>
 
       @if (podium().length) {
-        <pp-podium [entries]="podium()" />
+        <langa-podium [entries]="podium()" />
       }
     </header>
 
@@ -54,7 +54,7 @@
         <h2 class="session-detail__heading">Classification</h2>
         <div class="session-detail__results">
           @for (row of results(); track row.result.driver_number) {
-            <pp-card [teamColor]="formatTeamColor(row.driver?.team_colour)">
+            <langa-card [teamColor]="formatTeamColor(row.driver?.team_colour)">
               <div class="session-detail__result-row">
                 <span
                   class="session-detail__position"
@@ -65,7 +65,7 @@
                 </span>
 
                 @if (row.driver; as driver) {
-                  <pp-driver-avatar
+                  <langa-driver-avatar
                     [headshotUrl]="driver.headshot_url"
                     [name]="driver.full_name"
                     [acronym]="driver.name_acronym"
@@ -94,12 +94,12 @@
                   }
                 </div>
               </div>
-            </pp-card>
+            </langa-card>
           }
         </div>
       </section>
     } @else {
-      <pp-empty-state
+      <langa-empty-state
         icon="📊"
         title="No results yet"
         message="Results will appear here once the session is complete."
@@ -109,7 +109,7 @@
     @if (isSessionCompleted(s)) {
       @defer (on viewport) {
         <section class="session-detail__circuit">
-          <pp-circuit-map
+          <langa-circuit-map
             [imageUrl]="circuitImage()"
             [circuitName]="s.circuit_short_name"
             [loading]="false"
@@ -129,9 +129,9 @@
     }
 
     <div class="session-detail__back">
-      <pp-button variant="ghost">
+      <langa-button variant="ghost">
         <a routerLink="/calendar">← Back to Calendar</a>
-      </pp-button>
+      </langa-button>
     </div>
   }
 }

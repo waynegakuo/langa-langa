@@ -8,12 +8,12 @@
 
   &__eyebrow {
     display: block;
-    font-family: $pp-font-display;
+    font-family: $langa-font-display;
     font-size: 0.6875rem;
     font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: $pp-red;
+    color: $langa-red;
     margin-bottom: 0.5rem;
   }
 
@@ -35,7 +35,7 @@
 
   &__venue {
     font-size: 1rem;
-    color: $pp-text-secondary;
+    color: $langa-text-secondary;
   }
 
   &__meta {
@@ -47,19 +47,19 @@
 
   &__datetime {
     font-size: 0.875rem;
-    color: $pp-text-secondary;
+    color: $langa-text-secondary;
   }
 
   &__status-tag {
-    font-family: $pp-font-display;
+    font-family: $langa-font-display;
     font-size: 0.625rem;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: $pp-text-muted;
+    color: $langa-text-muted;
     padding: 0.2rem 0.5rem;
-    background: $pp-bg-elevated;
-    border-radius: $pp-radius-sm;
+    background: $langa-bg-elevated;
+    border-radius: $langa-radius-sm;
   }
 
   &__circuit {
@@ -71,9 +71,9 @@
     padding: 1rem;
     font-size: 0.75rem;
     text-align: center;
-    color: $pp-text-muted;
-    border: 1px dashed $pp-border;
-    border-radius: $pp-radius-md;
+    color: $langa-text-muted;
+    border: 1px dashed $langa-border;
+    border-radius: $langa-radius-md;
   }
 
   &__section {
@@ -85,7 +85,7 @@
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    color: $pp-text-secondary;
+    color: $langa-text-secondary;
   }
 
   &__results {
@@ -102,15 +102,15 @@
 
   &__position {
     min-width: 2.5rem;
-    font-family: $pp-font-display;
+    font-family: $langa-font-display;
     font-size: 1.125rem;
     font-weight: 900;
-    color: $pp-text-muted;
+    color: $langa-text-muted;
 
     &--out {
       font-size: 0.75rem;
       letter-spacing: 0.06em;
-      color: $pp-red;
+      color: $langa-red;
     }
   }
 
@@ -129,7 +129,7 @@
 
   &__team-name {
     font-size: 0.75rem;
-    color: $pp-text-muted;
+    color: $langa-text-muted;
     @include truncate;
   }
 
@@ -143,21 +143,21 @@
 
   &__laps {
     font-size: 0.75rem;
-    color: $pp-text-secondary;
+    color: $langa-text-secondary;
   }
 
   &__gap {
-    font-family: $pp-font-mono;
+    font-family: $langa-font-mono;
     font-size: 0.8125rem;
-    color: $pp-text-muted;
+    color: $langa-text-muted;
   }
 
   &__status {
-    font-family: $pp-font-display;
+    font-family: $langa-font-display;
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.06em;
-    color: $pp-red;
+    color: $langa-red;
   }
 
   &__fastest {
@@ -173,10 +173,10 @@
   }
 
   &__fastest-rank {
-    font-family: $pp-font-display;
+    font-family: $langa-font-display;
     font-size: 0.75rem;
     font-weight: 700;
-    color: $pp-text-muted;
+    color: $langa-text-muted;
   }
 
   &__fastest-driver {
@@ -185,9 +185,9 @@
   }
 
   &__fastest-time {
-    font-family: $pp-font-mono;
+    font-family: $langa-font-mono;
     font-size: 0.875rem;
-    color: $pp-red;
+    color: $langa-red;
   }
 
   &__back {
