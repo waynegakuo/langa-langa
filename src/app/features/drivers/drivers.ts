@@ -5,10 +5,10 @@ import { Driver, Session, SessionResult } from '../../core/models/openf1.models'
 import { OpenF1ApiService } from '../../core/services/openf1-api.service';
 import { SeasonService } from '../../core/services/season.service';
 import {
-  PpButton,
   PpCard,
   PpDriverAvatar,
   PpEmptyState,
+  PpModal,
   PpPageHeader,
   PpPageLoader,
 } from '../../design-system';
@@ -35,10 +35,10 @@ interface TeamGroup {
   selector: 'app-drivers',
   standalone: true,
   imports: [
-    PpButton,
     PpCard,
     PpDriverAvatar,
     PpEmptyState,
+    PpModal,
     PpPageHeader,
     PpPageLoader,
   ],
@@ -92,9 +92,7 @@ export class Drivers {
   }
 
   selectDriver(driverNumber: number): void {
-    this.selectedDriverNumber.update((current) =>
-      current === driverNumber ? null : driverNumber
-    );
+    this.selectedDriverNumber.set(driverNumber);
   }
 
   clearSelection(): void {

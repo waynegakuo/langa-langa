@@ -23,62 +23,59 @@
     message="Driver information is not available for the latest session."
   />
 } @else {
-  <div
-    class="drivers-layout"
-    [class.drivers-layout--has-detail]="selectedDriver() !== null"
-  >
-    <div class="drivers">
-      @for (team of teamGroups(); track team.teamName) {
-        <section class="drivers__team">
-          <header class="drivers__team-header" [style.--team-color]="'#' + formatTeamColor(team.teamColour)">
-            <span class="drivers__team-stripe"></span>
-            <h2 class="drivers__team-name">{{ team.teamName }}</h2>
-          </header>
+  <div class="drivers">
+    @for (team of teamGroups(); track team.teamName) {
+      <section class="drivers__team">
+        <header class="drivers__team-header" [style.--team-color]="'#' + formatTeamColor(team.teamColour)">
+          <span class="drivers__team-stripe"></span>
+          <h2 class="drivers__team-name">{{ team.teamName }}</h2>
+        </header>
 
-          <div class="drivers__grid grid grid-cols-1 md:grid-cols-2 gap-4">
-            @for (driver of team.drivers; track driver.driver_number) {
-              <pp-card
-                [interactive]="true"
-                [selected]="selectedDriverNumber() === driver.driver_number"
-                [teamColor]="formatTeamColor(driver.team_colour)"
+        <div class="drivers__grid grid grid-cols-1 md:grid-cols-2 gap-4">
+          @for (driver of team.drivers; track driver.driver_number) {
+            <pp-card
+              [interactive]="true"
+              [selected]="selectedDriverNumber() === driver.driver_number"
+              [teamColor]="formatTeamColor(driver.team_colour)"
+            >
+              <button
+                type="button"
+                class="drivers__card-button"
+                [attr.aria-haspopup]="'dialog'"
+                (click)="selectDriver(driver.driver_number)"
               >
-                <button
-                  type="button"
-                  class="drivers__card-button"
-                  [attr.aria-pressed]="selectedDriverNumber() === driver.driver_number"
-                  (click)="selectDriver(driver.driver_number)"
-                >
-                  <div class="drivers__card">
-                    <pp-driver-avatar
-                      [headshotUrl]="driver.headshot_url"
-                      [name]="driver.full_name"
-                      [acronym]="driver.name_acronym"
-                      [driverNumber]="driver.driver_number"
-                      [teamColor]="formatTeamColor(driver.team_colour)"
-                      size="lg"
-                    />
-                    <div class="drivers__info">
-                      <span class="drivers__acronym">{{ driver.name_acronym }}</span>
-                      <h3 class="drivers__name">{{ driver.full_name }}</h3>
-                      <span class="drivers__number">#{{ driver.driver_number }}</span>
-                    </div>
+                <div class="drivers__card">
+                  <pp-driver-avatar
+                    [headshotUrl]="driver.headshot_url"
+                    [name]="driver.full_name"
+                    [acronym]="driver.name_acronym"
+                    [driverNumber]="driver.driver_number"
+                    [teamColor]="formatTeamColor(driver.team_colour)"
+                    size="lg"
+                  />
+                  <div class="drivers__info">
+                    <span class="drivers__acronym">{{ driver.name_acronym }}</span>
+                    <h3 class="drivers__name">{{ driver.full_name }}</h3>
+                    <span class="drivers__number">#{{ driver.driver_number }}</span>
                   </div>
-                </button>
-              </pp-card>
-            }
-          </div>
-        </section>
-      }
-    </div>
-
-    @if (selectedDriver(); as driver) {
-      <aside class="drivers__detail" aria-label="Driver details">
-        <div class="drivers__detail-header">
-          <span class="drivers__detail-label">Driver profile</span>
-          <pp-button variant="ghost" size="sm" (click)="clearSelection()">Close</pp-button>
+                </div>
+              </button>
+            </pp-card>
+          }
         </div>
+      </section>
+    }
+  </div>
 
-        <div class="drivers__detail-hero">
+  <pp-modal
+    [open]="selectedDriver() !== null"
+    title="Driver profile"
+    [ariaLabel]="selectedDriver()?.full_name ?? 'Driver profile'"
+    (closed)="clearSelection()"
+  >
+    @if (selectedDriver(); as driver) {
+      <div class="drivers__modal">
+        <div class="drivers__modal-hero">
           <pp-driver-avatar
             [headshotUrl]="driver.headshot_url"
             [name]="driver.full_name"
@@ -87,88 +84,59 @@
             [teamColor]="formatTeamColor(driver.team_colour)"
             size="xl"
           />
-          <div class="drivers__detail-intro">
-            <span class="drivers__detail-acronym">{{ driver.name_acronym }}</span>
-            <h2 class="drivers__detail-name">{{ driver.full_name }}</h2>
-            <p class="drivers__detail-meta">
-              #{{ driver.driver_number }} · {{ driver.team_name }}
-            </p>
+          <div class="drivers__modal-intro">
+            <span class="drivers__modal-acronym">{{ driver.name_acronym }}</span>
+            <h2 class="drivers__modal-name">{{ driver.full_name }}</h2>
+            <p class="drivers__modal-meta">#{{ driver.driver_number }} · {{ driver.team_name }}</p>
           </div>
         </div>
 
-        <div class="drivers__detail-body">
-          <dl class="drivers__detail-stats">
-            <div class="drivers__detail-stat">
-              <dt>First name</dt>
-              <dd>{{ driver.first_name }}</dd>
+        <dl class="drivers__modal-stats">
+          @if (driver.country_code) {
+            <div class="drivers__modal-stat">
+              <dt>Country</dt>
+              <dd>{{ driver.country_code }}</dd>
             </div>
-            <div class="drivers__detail-stat">
-              <dt>Last name</dt>
-              <dd>{{ driver.last_name }}</dd>
-            </div>
-            <div class="drivers__detail-stat">
-              <dt>Broadcast name</dt>
-              <dd>{{ driver.broadcast_name }}</dd>
-            </div>
-            @if (driver.country_code) {
-              <div class="drivers__detail-stat">
-                <dt>Country</dt>
-                <dd>{{ driver.country_code }}</dd>
-              </div>
-            }
-          </dl>
-
-          @if (hasRaceResults() && selectedResult(); as result) {
-            <section class="drivers__detail-race">
-              <h3 class="drivers__detail-race-title">
-                @if (sourceSession(); as session) {
-                  {{ formatRaceTitle(session) }}
-                }
-              </h3>
-              <p class="drivers__detail-race-date">
-                @if (sourceSession(); as session) {
-                  {{ formatSessionDate(session.date_start) }}
-                }
-              </p>
-
-              <dl class="drivers__detail-stats drivers__detail-stats--race">
-                <div class="drivers__detail-stat">
-                  <dt>Classification</dt>
-                  <dd
-                    class="drivers__detail-position"
-                    [class.drivers__detail-position--podium]="isPodiumPosition(result.position)"
-                  >
-                    {{ formatClassificationPosition(result) }}
-                  </dd>
-                </div>
-                @if (result.points != null) {
-                  <div class="drivers__detail-stat">
-                    <dt>Points</dt>
-                    <dd>{{ result.points }}</dd>
-                  </div>
-                }
-                <div class="drivers__detail-stat">
-                  <dt>Laps</dt>
-                  <dd>{{ result.number_of_laps }}</dd>
-                </div>
-                @if (resultStatus(result); as status) {
-                  <div class="drivers__detail-stat">
-                    <dt>Status</dt>
-                    <dd>{{ status }}</dd>
-                  </div>
-                } @else {
-                  @if (getGapToLeader(result); as gap) {
-                    <div class="drivers__detail-stat">
-                      <dt>Gap to leader</dt>
-                      <dd>{{ formatGap(gap) }}</dd>
-                    </div>
-                  }
-                }
-              </dl>
-            </section>
           }
-        </div>
-      </aside>
+          <div class="drivers__modal-stat">
+            <dt>Broadcast name</dt>
+            <dd>{{ driver.broadcast_name }}</dd>
+          </div>
+        </dl>
+
+        @if (hasRaceResults() && selectedResult(); as result) {
+          <section class="drivers__modal-race">
+            <h3 class="drivers__modal-race-title">
+              @if (sourceSession(); as session) {
+                {{ formatRaceTitle(session) }}
+              }
+            </h3>
+            <p class="drivers__modal-race-date">
+              @if (sourceSession(); as session) {
+                {{ formatSessionDate(session.date_start) }}
+              }
+            </p>
+
+            <dl class="drivers__modal-stats drivers__modal-stats--race">
+              <div class="drivers__modal-stat">
+                <dt>Classification</dt>
+                <dd
+                  class="drivers__modal-position"
+                  [class.drivers__modal-position--podium]="isPodiumPosition(result.position)"
+                >
+                  {{ formatClassificationPosition(result) }}
+                </dd>
+              </div>
+              @if (result.points != null) {
+                <div class="drivers__modal-stat">
+                  <dt>Points</dt>
+                  <dd>{{ result.points }}</dd>
+                </div>
+              }
+            </dl>
+          </section>
+        }
+      </div>
     }
-  </div>
+  </pp-modal>
 }
