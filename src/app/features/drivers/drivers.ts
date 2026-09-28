@@ -10,7 +10,7 @@ import {
   PpDriverAvatar,
   PpEmptyState,
   PpPageHeader,
-  PpSpinner,
+  PpPageLoader,
 } from '../../design-system';
 import {
   formatClassificationPosition,
@@ -40,7 +40,7 @@ interface TeamGroup {
     PpDriverAvatar,
     PpEmptyState,
     PpPageHeader,
-    PpSpinner,
+    PpPageLoader,
   ],
   templateUrl: './drivers.html',
   styleUrl: './drivers.scss',

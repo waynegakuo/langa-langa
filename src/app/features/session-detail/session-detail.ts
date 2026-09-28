@@ -14,7 +14,7 @@ import {
   PpDriverAvatar,
   PpEmptyState,
   PpPodium,
-  PpSpinner,
+  PpPageLoader,
 } from '../../design-system';
 import { PodiumEntry } from '../../shared/models/podium.model';
 import {
@@ -52,7 +52,7 @@ interface ResultRow {
     PpDriverAvatar,
     PpEmptyState,
     PpPodium,
-    PpSpinner,
+    PpPageLoader,
   ],
   templateUrl: './session-detail.html',
   styleUrl: './session-detail.scss',

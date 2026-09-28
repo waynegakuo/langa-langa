@@ -29,7 +29,14 @@
   </div>
 
   @if (loading()) {
-    <pp-spinner />
+    <pp-page-loader
+      [messages]="[
+        'Scanning the season calendar…',
+        'Finding the next Grand Prix…',
+        'Loading recent results…',
+        'Crunching championship data…',
+      ]"
+    />
   } @else {
     @if (seasonComplete()) {
       <div class="home__season-banner">

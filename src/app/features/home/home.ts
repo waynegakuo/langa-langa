@@ -26,7 +26,7 @@ import {
   PpBadge,
   PpButton,
   PpCard,
-  PpSpinner,
+  PpPageLoader,
   PpStatBlock,
 } from '../../design-system';
 import { formatSessionDate, formatSessionTime } from '../../shared/utils/time.util';
@@ -39,7 +39,7 @@ import { formatSessionDate, formatSessionTime } from '../../shared/utils/time.ut
     PpBadge,
     PpButton,
     PpCard,
-    PpSpinner,
+    PpPageLoader,
     PpStatBlock,
     TeamCarCarousel,
   ],

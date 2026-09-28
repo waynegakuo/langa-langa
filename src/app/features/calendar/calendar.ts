@@ -18,7 +18,7 @@ import {
   PpCard,
   PpEmptyState,
   PpPageHeader,
-  PpSpinner,
+  PpPageLoader,
 } from '../../design-system';
 import {
   filterActiveSessions,
@@ -47,7 +47,7 @@ export interface MeetingGroup {
     PpCard,
     PpEmptyState,
     PpPageHeader,
-    PpSpinner,
+    PpPageLoader,
   ],
   templateUrl: './calendar.html',
   styleUrl: './calendar.scss',

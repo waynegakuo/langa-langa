@@ -7,7 +7,15 @@
 />
 
 @if (loading()) {
-  <pp-spinner />
+  <pp-page-loader
+    [fullViewport]="true"
+    [messages]="[
+      'Loading the grid…',
+      'Fetching driver lineups…',
+      'Syncing team colours…',
+      'Checking the timing tower…',
+    ]"
+  />
 } @else if (!teamGroups().length) {
   <pp-empty-state
     icon="👤"

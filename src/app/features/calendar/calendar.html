@@ -5,7 +5,15 @@
 />
 
 @if (loading()) {
-  <pp-spinner />
+  <pp-page-loader
+    [fullViewport]="true"
+    [messages]="[
+      'Loading race weekends…',
+      'Mapping the calendar…',
+      'Fetching session schedules…',
+      'Building the round list…',
+    ]"
+  />
 } @else if (!meetingGroups().length) {
   <pp-empty-state
     icon="📅"

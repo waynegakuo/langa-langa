@@ -5,6 +5,7 @@ export { PpCircuitMap } from './components/pp-circuit-map/pp-circuit-map';
 export { PpDriverAvatar } from './components/pp-driver-avatar/pp-driver-avatar';
 export { PpEmptyState } from './components/pp-empty-state/pp-empty-state';
 export { PpPageHeader } from './components/pp-page-header/pp-page-header';
+export { PpPageLoader } from './components/pp-page-loader/pp-page-loader';
 export { PpPodium } from './components/pp-podium/pp-podium';
 export { PpSeasonSelector } from './components/pp-season-selector/pp-season-selector';
 export { PpSpinner } from './components/pp-spinner/pp-spinner';

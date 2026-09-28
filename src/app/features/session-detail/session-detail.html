@@ -1,5 +1,13 @@
 @if (loading()) {
-  <pp-spinner />
+  <pp-page-loader
+    [fullViewport]="true"
+    [messages]="[
+      'Loading session data…',
+      'Pulling classification…',
+      'Fetching fastest laps…',
+      'Reviewing race control…',
+    ]"
+  />
 } @else if (!session()) {
   <pp-empty-state
     icon="🏎️"
